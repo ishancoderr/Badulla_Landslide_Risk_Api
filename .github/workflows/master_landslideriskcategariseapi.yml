@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'Landslideriskcategariseapi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A48D3DFFDAA940F5B8DE62B18D97CA54 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F067A0B9D02241B4AB5A0D91AC9C7DB8 }}
