@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'landslideRiskApi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D02161EDB538428F8ED87F4054B6A2D1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CEC368A5A6294658870C47049F56C986 }}
