@@ -98,71 +98,10 @@ def index():
 	return render_template('index.html')
 
 #the point Risk implementation
-@app.route('/buffer-point')
-def buffer_point():
-    lon = request.args.get('lon')
-    lat = request.args.get('lat')
-    # buf_dist=request.args.get('buf-dist')
-
-    error_res = {}
-    polygon_risk = {}
-
-    # arguments passed from the API are strings
-    try:
-        lon = float(lon)
-    except ValueError:
-        error_res['longitude error'] = 'lon argument should be numeric'
-        error_res['value given'] = lon
-        return jsonify(error_res)
-
-    # check if lon is out of range
-    if lon < -180.0 or lon > 180.0:
-        error_res['longitude error'] = 'lon argument value out of range. It shoud be between -180.0 and 180.0'
-        error_res['value given'] = lon
-        return jsonify(error_res)
-
-    # check if lat argument value is valid as numeric
-    # arguments passed from the API are strings
-    try:
-        lat = float(lat)
-    except ValueError:
-        error_res['latitude error'] = 'lat argument should be numeric'
-        error_res['value given'] = lat
-        return jsonify(error_res)
-
-    # check if lat is out of range
-    if lat < -90.0 or lat > 90.0:
-        error_res['latitude error'] = 'lat argument value out of range. It shoud be between -90.0 and 90.0'
-        error_res['value given'] = lat
-        return jsonify(error_res)
-
-    # load GeoJSON file containing sectors
-
-    with open(r"E:\geo_api\app\riskmap\risk.json", "r") as f:
-        js = json.load(f)
-
-    point = Point(lon, lat)
-
-    # check each polygon to see if it contains the point
-    for feature in js['features']:
-        polygon = shape(feature['geometry'])
-        if polygon.contains(point):
-            properties=feature['properties']
-            polygon_risk['Location Risk']=properties["value"]
-            return jsonify(polygon_risk)
-    else:
-        polygon_risk['Location Risk'] = 'not your location in research area'
-        return jsonify(polygon_risk)
-
-
-
-
-
-
 
 # main to run app
 if __name__ == '__main__':
-	app.run(debug = True)
+	app.run(debug = True, host="0.0.0.0",port=80)
 
 
 
