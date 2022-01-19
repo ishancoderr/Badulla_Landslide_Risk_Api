@@ -80,13 +80,9 @@ class endpoint(Resource):
 
 
 
-
-
-
-
 api.add_resource(endpoint,'/buffer-point')
 
-#http://127.0.0.1:5000/buffer-point?lon=80.997985&lat=6.829219
+#http://127.0.0.1:80/buffer-point?lon=80.997985&lat=6.829219
 
 
 # rendering the index or entry using either of the 3 routes
@@ -101,7 +97,7 @@ def index():
 
 # main to run app
 if __name__ == '__main__':
-	app.run(debug = True, host="0.0.0.0",port=80)
+	app.run(debug = True,port=80)
 
 
 
