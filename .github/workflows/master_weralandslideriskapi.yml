@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'weralandslideriskapi'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C65025794C6E4CCE838CBB2D5A4D5968 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F248085BA1DC42ACB254F2B985F5D785 }}
